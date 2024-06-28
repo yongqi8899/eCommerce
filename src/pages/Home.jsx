@@ -1,13 +1,11 @@
 import Cards from "../components/Cards.jsx";
 import Categories from "../components/Categories.jsx";
 import CategoriesSkeleton from "../components/CategoriesSkeleton.jsx";
-import { useLoaderData, Await } from "react-router-dom";
+import { useLoaderData, Await, useOutletContext} from "react-router-dom";
 import { Suspense } from "react";
 const Home = () => {
   const { productsData, categoriesData } = useLoaderData();
-  console.log("home productsData", productsData);
-  console.log("home categoriesData", categoriesData);
-
+  // const {filterKey, setFilterKey} = useOutletContext()
   return (
     <>
       <Suspense fallback={<CategoriesSkeleton />}>

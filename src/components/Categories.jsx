@@ -1,12 +1,13 @@
-import Cards from "./Cards";
 export default function Categories({ categoriesData }) {
   return (
     <div className="flex justify-start flex-wrap gap-6 my-6">
-      {categoriesData.map((c)=>{
+      {categoriesData.map((category) => {
         return (
-          <button className="btn btn-outline btn-blue">{c}</button>
-          )
+          <button className="btn btn-outline btn-blue" onClick={()=>console.log({category})}>
+            {category}
+          </button>
+        );
       })}
     </div>
-  )
+  );
 }

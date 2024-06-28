@@ -19,9 +19,9 @@ export async function fetchProductsData() {
 //     }
 // }
 
-export async function fetchCategoriesData() {
+export async function fetchCategoriesData(params="") {
     try {
-        const res = await fetch("https://fakestoreapi.com/products/categories");
+        const res = await fetch(`https://fakestoreapi.com/products/categories/${params}`);
         if(!res.ok) throw new Error("An error occurred while fetching the data");
         const data = await res.json();
         return await data
