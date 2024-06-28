@@ -16,19 +16,10 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: async () => {
           let productsData = await fetchProductsData();
-          // let categoriesDataData = await fetchCategoriesData();
           return defer({
             productsData,
-            // categoriesDataData,
           });
         },
-        // children: [
-        //   {
-        //     path: "", //:category X
-        //     element: <Categories />,
-        //     loader: async () => await fetchProductsCategories()
-        //   },
-        // ],
       },
       {
         path: "cart",
