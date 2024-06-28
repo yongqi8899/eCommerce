@@ -1,17 +1,13 @@
-// export default function Categories({ categoriesData }) {
-//   return (
-//     <div role="tablist" className="tabs tabs-lifted">
-//       {categoriesData.map((category) => {
-//         return (
-//             <a
-//                 href={`#${category.name}`}
-//                 key={category.id}
-//                 className="tab"
-//                 aria-selected="true"
-//             >
-//                 {category.name}
-//             </a>
-//          )} )}
-//     </div>
-//   );
-// }
+import { Link } from "react-router-dom";
+export default function Categories({categoriesData}) {
+  console.log("categoriesData",categoriesData);
+  return (
+    <div role="tablist" className="tabs tabs-lifted">
+      {/* {categoriesData.map((category) => {
+         return ( <>
+                
+         </>)
+         } )} */}
+    </div>
+  );
+}

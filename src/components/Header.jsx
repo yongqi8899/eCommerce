@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 export default function Header() {
   return (
-    <div className="navbar bg-blue-300 text-gray-700 bold flex align-middle">
+    <div className="flex text-gray-700 align-middle bg-blue-300 navbar bold">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost text-xl">
+        <Link to="/" className="text-xl btn btn-ghost">
           LOGO
         </Link>
       </div>
@@ -15,7 +15,7 @@ export default function Header() {
           <Link to="/cart" >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="w-5 h-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

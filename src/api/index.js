@@ -18,3 +18,14 @@ export async function fetchProductsData() {
 //         console.log(error);
 //     }
 // }
+
+export async function fetchCategoriesData() {
+    try {
+        const res = await fetch("https://fakestoreapi.com/products/categories");
+        if(!res.ok) throw new Error("An error occurred while fetching the data");
+        const data = await res.json();
+        return await data
+    } catch (error) {
+        console.log(error);
+    }
+}

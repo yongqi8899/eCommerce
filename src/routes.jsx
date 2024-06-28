@@ -1,9 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, defer } from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import ErrorPage from "./pages/ErrorPage";
 import Root from "./layout/root";
-import { fetchProductsData} from "./api";
+import { fetchProductsData, fetchCategoriesData } from "./api";
 
 const router = createBrowserRouter([
   {
@@ -14,8 +14,21 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: async () => await fetchProductsData(),
-        // loader: async ({params}) => await fetchProductsData(params),
+        loader: async () => {
+          let productsData = await fetchProductsData();
+          // let categoriesDataData = await fetchCategoriesData();
+          return defer({
+            productsData,
+            // categoriesDataData,
+          });
+        },
+        // children: [
+        //   {
+        //     path: "", //:category X
+        //     element: <Categories />,
+        //     loader: async () => await fetchProductsCategories()
+        //   },
+        // ],
       },
       {
         path: "cart",
