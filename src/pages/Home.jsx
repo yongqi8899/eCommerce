@@ -1,16 +1,22 @@
-import Cards from "../components/Cards";
-import Categories from "../components/Categories";
-// import CategoriesSkeleton from "../components/CategoriesSkeleton.jsx";
+import Cards from "../components/Cards.jsx";
+import Categories from "../components/Categories.jsx";
+import CategoriesSkeleton from "../components/CategoriesSkeleton.jsx";
 import { useLoaderData, Await } from "react-router-dom";
-
+import { Suspense } from "react";
 const Home = () => {
-  const {productsData} = useLoaderData();
+  const { productsData, categoriesData } = useLoaderData();
   console.log("home productsData", productsData);
-  // console.log("home categoriesData", categoriesData);
+  console.log("home categoriesData", categoriesData);
+
   return (
     <>
-      <Categories categoriesData={productsData}/>
-      {/* {productsData && <Cards cards={productsData} />} */}
+      <Suspense fallback={<CategoriesSkeleton />}>
+        <Await resolve={categoriesData}>
+          {(categoriesData) => <Categories categoriesData={categoriesData} />}
+        </Await>
+      </Suspense>
+
+      {productsData && <Cards cards={productsData} />}
     </>
   );
 };

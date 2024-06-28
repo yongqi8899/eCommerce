@@ -2,7 +2,7 @@ const Cards = ({ cards }) => {
   console.log("cards",cards);
   return (
     <>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex justify-between flex-wrap gap-4">
         {cards.map((item) => (
           <div key={item.id} className="shadow-xl card bg-base-100 w-96">
             <figure>

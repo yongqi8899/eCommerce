@@ -1,12 +1,12 @@
-import Cards from "./Cards"
-export default function Categories({categoriesData}) {
-
-  const filterCategories = (categoryKey)=> categoriesData.filter(c=>c.category == categoryKey)
-  
-  console.log(filterCategories("men's clothing"));
+import Cards from "./Cards";
+export default function Categories({ categoriesData }) {
   return (
-    <div role="tablist" className="tabs tabs-lifted">
-        <Cards cards={filterCategories("men's clothing")} />
+    <div className="flex justify-between flex-wrap gap-6 my-6">
+      {categoriesData.map((c)=>{
+        return (
+          <button className="btn btn-outline btn-blue-300">{c}</button>
+          )
+      })}
     </div>
-  );
+  )
 }

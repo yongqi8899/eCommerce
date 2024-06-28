@@ -16,8 +16,10 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: async () => {
           let productsData = await fetchProductsData();
+          let categoriesData = await fetchCategoriesData();
           return defer({
             productsData,
+            categoriesData,
           });
         },
       },
