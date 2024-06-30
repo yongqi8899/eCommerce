@@ -22,7 +22,15 @@ const router = createBrowserRouter([
             categoriesData,
           });
         },
+        // children: [
+        //   {
+        //     path: "/category/:category",
+        //     element: <Home />,
+        //     loader: async ({ params }) => await fetchCategoriesData(params),
+        //   },
+        // ],
       },
+
       {
         path: "cart",
         element: <Cart />,

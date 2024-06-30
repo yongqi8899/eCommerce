@@ -1,20 +1,23 @@
 import { useState, useEffect } from "react";
 
-const Cards = ({ cards }) => {
+const Cards = ({ cards, filterKey="" }) => {
   const [cardsData, setCardsData] = useState(cards);
 
   function filterData(filterKey) {
-    return cards.filter((c) => c.category == filterKey);
+    if (filterKey) {
+      return cards.filter((c) => c.category == filterKey);
+    }
+    return cards
   }
 
   useEffect(() => {
-    const filteredData = filterData("women's clothing");
+    const filteredData = filterData(filterKey);
     setCardsData(filteredData);
   }, [cards]);
 
   return (
     <>
-      <div className="flex justify-between flex-wrap gap-4">
+      <div className="flex flex-wrap justify-between gap-4">
         {cardsData.map((item) => (
           <div key={item.id} className="shadow-xl card bg-base-100 w-96">
             <figure>
